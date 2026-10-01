@@ -1,43 +1,21 @@
 #include <Arduino.h>
 
-// HC-SR04 pins
-const int TRIG_PIN = 5;
-const int ECHO_PIN = 18;
+const int MQ2_PIN = 32;
 
 void setup() {
     Serial.begin(115200);
 
-    pinMode(TRIG_PIN, OUTPUT);
-    pinMode(ECHO_PIN, INPUT);
-
-    digitalWrite(TRIG_PIN, LOW);
+    pinMode(MQ2_PIN, INPUT);
 
     Serial.println("FirePatrol Sentinel");
-    Serial.println("Ultrasonic sensor initialized.");
+    Serial.println("MQ-2 sensor initialized.");
 }
 
 void loop() {
-    // Send a 10-microsecond trigger pulse
-    digitalWrite(TRIG_PIN, LOW);
-    delayMicroseconds(2);
+    int smokeValue = analogRead(MQ2_PIN);
 
-    digitalWrite(TRIG_PIN, HIGH);
-    delayMicroseconds(10);
-    digitalWrite(TRIG_PIN, LOW);
-
-    // Measure the echo time
-    long duration = pulseIn(ECHO_PIN, HIGH, 30000);
-
-    if (duration == 0) {
-        Serial.println("No echo detected");
-    } else {
-        // Speed of sound ≈ 0.0343 cm/us
-        float distance = duration * 0.0343 / 2;
-
-        Serial.print("Distance: ");
-        Serial.print(distance);
-        Serial.println(" cm");
-    }
+    Serial.print("MQ-2 Value: ");
+    Serial.println(smokeValue);
 
     delay(500);
 }
