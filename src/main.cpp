@@ -1,21 +1,24 @@
 #include <Arduino.h>
 
-const int MQ2_PIN = 32;
+const int FLAME_PIN = 34;
 
 void setup() {
     Serial.begin(115200);
 
-    pinMode(MQ2_PIN, INPUT);
+    pinMode(FLAME_PIN, INPUT);
 
     Serial.println("FirePatrol Sentinel");
-    Serial.println("MQ-2 sensor initialized.");
+    Serial.println("Flame sensor initialized.");
 }
 
 void loop() {
-    int smokeValue = analogRead(MQ2_PIN);
+    int flameState = digitalRead(FLAME_PIN);
 
-    Serial.print("MQ-2 Value: ");
-    Serial.println(smokeValue);
+    if (flameState == LOW) {
+        Serial.println("FLAME DETECTED!");
+    } else {
+        Serial.println("No flame detected.");
+    }
 
-    delay(500);
+    delay(300);
 }
