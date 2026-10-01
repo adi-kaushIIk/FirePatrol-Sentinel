@@ -1,146 +1,43 @@
 #include <Arduino.h>
 
-// =========================
-// Motor Pins
-// =========================
-
-// Left motor
-const int LEFT_IN1 = 26;
-const int LEFT_IN2 = 27;
-
-// Right motor
-const int RIGHT_IN3 = 14;
-const int RIGHT_IN4 = 13;
-
-// =========================
-// MQ-2
-// =========================
-
-const int MQ2_PIN = 32;
-
-
-// =========================
-// Motor Functions
-// =========================
-
-// Stop both motors
-void stopMotors() {
-    digitalWrite(LEFT_IN1, LOW);
-    digitalWrite(LEFT_IN2, LOW);
-
-    digitalWrite(RIGHT_IN3, LOW);
-    digitalWrite(RIGHT_IN4, LOW);
-}
-
-// Move forward
-void moveForward() {
-    digitalWrite(LEFT_IN1, HIGH);
-    digitalWrite(LEFT_IN2, LOW);
-
-    digitalWrite(RIGHT_IN3, HIGH);
-    digitalWrite(RIGHT_IN4, LOW);
-}
-
-// Move backward
-void moveBackward() {
-    digitalWrite(LEFT_IN1, LOW);
-    digitalWrite(LEFT_IN2, HIGH);
-
-    digitalWrite(RIGHT_IN3, LOW);
-    digitalWrite(RIGHT_IN4, HIGH);
-}
-
-// Turn left
-void turnLeft() {
-    digitalWrite(LEFT_IN1, LOW);
-    digitalWrite(LEFT_IN2, HIGH);
-
-    digitalWrite(RIGHT_IN3, HIGH);
-    digitalWrite(RIGHT_IN4, LOW);
-}
-
-// Turn right
-void turnRight() {
-    digitalWrite(LEFT_IN1, HIGH);
-    digitalWrite(LEFT_IN2, LOW);
-
-    digitalWrite(RIGHT_IN3, LOW);
-    digitalWrite(RIGHT_IN4, HIGH);
-}
-
-
-// =========================
-// Setup
-// =========================
+// HC-SR04 pins
+const int TRIG_PIN = 5;
+const int ECHO_PIN = 18;
 
 void setup() {
-
     Serial.begin(115200);
 
-    // Motor pins
-    pinMode(LEFT_IN1, OUTPUT);
-    pinMode(LEFT_IN2, OUTPUT);
+    pinMode(TRIG_PIN, OUTPUT);
+    pinMode(ECHO_PIN, INPUT);
 
-    pinMode(RIGHT_IN3, OUTPUT);
-    pinMode(RIGHT_IN4, OUTPUT);
-
-    // MQ-2
-    pinMode(MQ2_PIN, INPUT);
-
-    stopMotors();
+    digitalWrite(TRIG_PIN, LOW);
 
     Serial.println("FirePatrol Sentinel");
-    Serial.println("Motor control initialized.");
-    Serial.println("MQ-2 initialized.");
+    Serial.println("Ultrasonic sensor initialized.");
 }
 
-
-// =========================
-// Main Loop
-// =========================
-
 void loop() {
+    // Send a 10-microsecond trigger pulse
+    digitalWrite(TRIG_PIN, LOW);
+    delayMicroseconds(2);
 
-    // Read MQ-2 analog value
-    int smokeValue = analogRead(MQ2_PIN);
+    digitalWrite(TRIG_PIN, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(TRIG_PIN, LOW);
 
-    Serial.print("MQ-2 Value: ");
-    Serial.println(smokeValue);
+    // Measure the echo time
+    long duration = pulseIn(ECHO_PIN, HIGH, 30000);
 
+    if (duration == 0) {
+        Serial.println("No echo detected");
+    } else {
+        // Speed of sound ≈ 0.0343 cm/us
+        float distance = duration * 0.0343 / 2;
 
-    // =========================
-    // Motor Test
-    // =========================
+        Serial.print("Distance: ");
+        Serial.print(distance);
+        Serial.println(" cm");
+    }
 
-    // Serial.println("FORWARD");
-    // moveForward();
-    // delay(2000);
-
-    // Serial.println("STOP");
-    // stopMotors();
-    // delay(1000);
-
-    // Serial.println("BACKWARD");
-    // moveBackward();
-    // delay(2000);
-
-    // Serial.println("STOP");
-    // stopMotors();
-    // delay(1000);
-
-    // Serial.println("LEFT");
-    // turnLeft();
-    // delay(1500);
-
-    // Serial.println("STOP");
-    // stopMotors();
-    // delay(1000);
-
-    // Serial.println("RIGHT");
-    // turnRight();
-    // delay(1500);
-
-    // Serial.println("STOP");
-    // stopMotors();
-    // delay(2000);
+    delay(500);
 }
