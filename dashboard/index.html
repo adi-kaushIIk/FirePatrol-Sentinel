@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FirePatrol Sentinel | Command Center</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">✦</div><div><strong>FIREPATROL</strong><small>SENTINEL SYSTEM</small></div></div>
+    <div class="nav-label">WORKSPACE</div>
+    <a class="nav active" href="index.html"><span>▦</span> Command Center</a>
+    <a class="nav" href="sensors.html"><span>⌁</span> Sensor Lab</a>
+    <a class="nav" href="logs.html"><span>☷</span> Patrol Logs</a>
+    <div class="side-bottom"><span class="pulse"></span><div><b>SIMULATION MODE</b><small>ESP32 not connected</small></div></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><p class="eyebrow">FIREPATROL SENTINEL / OVERVIEW</p><h1>Command Center</h1></div><div class="top-actions"><span class="chip warn"><i></i> Offline simulation</span><span class="avatar">FP</span></div></header>
+    <section class="welcome"><div><p class="eyebrow">AUTONOMOUS ROVER CONTROL</p><h2>Patrol status <span id="patrolText">Standby</span></h2><p class="muted">Monitor the rover’s simulated sensors and test response logic.</p></div><div class="controls"><button id="startBtn" class="primary">▶ Start patrol</button><button id="stopBtn" class="secondary">■ Stop rover</button></div></section>
+    <section class="stats">
+      <article class="stat"><div class="stat-head"><span>FRONT DISTANCE</span><span class="stat-icon">⌖</span></div><strong><span id="distanceVal">85</span><small> cm</small></strong><div class="meter"><span id="distanceBar" style="width:70%"></span></div><p class="stat-foot">Obstacle threshold <b>30 cm</b></p></article>
+      <article class="stat"><div class="stat-head"><span>MQ-2 ANALOG</span><span class="stat-icon">〰</span></div><strong id="mqVal">420<small> / 4095</small></strong><div class="meter amber"><span id="mqBar" style="width:10%"></span></div><p class="stat-foot">Smoke threshold <b>1800</b></p></article>
+      <article class="stat"><div class="stat-head"><span>FLAME SENSOR</span><span class="stat-icon">♨</span></div><strong id="flameVal">Clear</strong><div class="status-line"><span id="flameDot" class="dot good"></span><span id="flameNote">No flame detected</span></div><p class="stat-foot">Digital input · active LOW</p></article>
+      <article class="stat"><div class="stat-head"><span>MOTOR OUTPUT</span><span class="stat-icon">↗</span></div><strong id="speedVal">0<small>% PWM</small></strong><div class="meter"><span id="speedBar" style="width:0%"></span></div><p class="stat-foot">Patrol target <b>5% PWM</b></p></article>
+    </section>
+    <section class="content-grid">
+      <article class="panel"><div class="panel-head"><div><h3>Rover telemetry</h3><p class="muted">Live-updating simulated readings</p></div><span class="chip"><span class="pulse"></span> <span id="telemetryStatus">Idle</span></span></div><div class="chart-wrap"><svg id="chart" viewBox="0 0 700 210" preserveAspectRatio="none" aria-label="Distance and smoke telemetry chart"><defs><linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#42d6b0" stop-opacity=".22"/><stop offset="1" stop-color="#42d6b0" stop-opacity="0"/></linearGradient></defs><g class="gridlines"><path d="M0 30H700 M0 75H700 M0 120H700 M0 165H700 M0 205H700"/></g><path id="areaPath" d="" fill="url(#area)"/><path id="linePath" d="" fill="none" stroke="#42d6b0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="chart-legend"><span><i class="legend-dot teal"></i> Distance (cm)</span><span><i class="legend-dot amber-dot"></i> MQ-2 is shown in the metric above</span></div></div></article>
+      <article class="panel response"><div class="panel-head"><div><h3>Response system</h3><p class="muted">Firmware logic preview</p></div><span id="hazardBadge" class="chip good">All clear</span></div><div class="response-item"><div class="response-icon teal-bg">⌖</div><div><b>Obstacle avoidance</b><p id="obstacleState">Path clear · forward patrol ready</p></div><span class="tiny-tag" id="obstacleTag">READY</span></div><div class="response-item"><div class="response-icon amber-bg">♨</div><div><b>Smoke monitoring</b><p id="smokeState">Reading below threshold</p></div><span class="tiny-tag" id="smokeTag">CLEAR</span></div><div class="response-item"><div class="response-icon red-bg">⚠</div><div><b>Fire alarm</b><p id="alarmState">Buzzer inactive</p></div><span class="tiny-tag" id="alarmTag">OFF</span></div><div class="note">This page is a UI prototype. It does not control the physical rover yet.</div></article>
+    </section>
+    <section class="panel test-panel"><div class="panel-head"><div><h3>Quick test controls</h3><p class="muted">Trigger simulated conditions to preview the UI</p></div><button class="text-btn" id="clearBtn">Reset simulation ↺</button></div><div class="test-buttons"><button class="test-btn" id="obstacleBtn"><span>⌖</span><b>Simulate obstacle</b><small>Distance drops to 18 cm</small></button><button class="test-btn" id="smokeBtn"><span>〰</span><b>Simulate smoke</b><small>MQ-2 rises above threshold</small></button><button class="test-btn" id="fireBtn"><span>♨</span><b>Simulate fire</b><small>Flame sensor activates</small></button><button class="test-btn" id="clearHazardBtn"><span>✓</span><b>Clear hazards</b><small>Return sensors to normal</small></button></div></section>
+    <footer>FirePatrol Sentinel · Dashboard prototype <span>Hardware connection: not configured</span></footer>
+  </main>
+</div><script src="app.js"></script><script>initDashboard();</script>
+</body></html>
