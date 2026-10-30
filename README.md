@@ -131,13 +131,13 @@ We selected four DC geared motors because they offer a suitable combination of t
 ## 📸 Project Gallery
 
 ### Front View
-![FirePatrolSentinel Front View](assets/rover-front.jpeg)
+![FirePatrolSentinel Front View](https://github.com/adi-kaushIIk/FirePatrol-Sentinel/blob/e97845e4902fea804e70b974bc665046e9be3ff5/rover-front.jpeg.jpeg)
 
 ### Top View
-![FirePatrolSentinel Top View](assets/rover-top.jpeg)
+![FirePatrolSentinel Top View](https://github.com/adi-kaushIIk/FirePatrol-Sentinel/blob/e97845e4902fea804e70b974bc665046e9be3ff5/rover-top.jpeg.jpeg)
 
 ### Side Perspective
-![FirePatrolSentinel Side View](assets/rover-side.jpeg)
+![FirePatrolSentinel Side View](https://github.com/adi-kaushIIk/FirePatrol-Sentinel/blob/e97845e4902fea804e70b974bc665046e9be3ff5/rover-side.jpeg.jpeg)
 
 ---
 
