@@ -2,7 +2,7 @@
 ### An Autonomous Fire and Smoke Detection Rover
 
 <p align="center">
-  <img src="assets/rover-front.jpeg" width="75%" alt="FirePatrolSentinel front view">
+  <img src="[assets/rover-front.jpeg" width="75%" alt="FirePatrolSentinel front view](https://github.com/adi-kaushIIk/FirePatrol-Sentinel/blob/6064d2e978173a7ef8cdfd0c3c365ba709b346dd/banner.jpg)">
 </p>
 
 > **Project Type:** Robotics & Embedded Systems  
