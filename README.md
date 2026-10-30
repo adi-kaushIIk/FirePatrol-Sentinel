@@ -82,14 +82,13 @@ The team was established and is led by **Kaushik Paul**, who is responsible for 
 |---|---|
 | ESP32 Development Board | Main controller |
 | L298N Motor Driver | Controls motor movement |
-| 4 × DC Geared Motors | Drives the rover |
+| 2 × DC Geared Motors | Drives the rover |
 | HC-SR04 Ultrasonic Sensor | Obstacle detection |
 | Servo Motor | Rotates the ultrasonic sensor |
 | MQ-2 Gas Sensor | Smoke and gas detection |
 | Flame Sensor | Flame detection |
 | LM2596 Buck Converter | Voltage regulation |
 | Buzzer | Audible warning |
-| Red and Green LEDs | Visual status indication |
 | Battery | Power supply |
 | Custom Chassis | Mechanical structure |
 
