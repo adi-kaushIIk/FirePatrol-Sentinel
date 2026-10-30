@@ -32,7 +32,7 @@ The main objective of this project is to demonstrate how robotics, embedded syst
 - 📡 **Obstacle Detection:** Measures the distance to nearby objects using an ultrasonic sensor.
 - 🤖 **Autonomous Patrolling:** Moves around the designated area while monitoring its surroundings.
 - 🔄 **Obstacle Avoidance:** Stops and changes direction when an obstacle is detected.
-- 🚨 **Alert System:** Activates a buzzer and warning LEDs when a potential fire or smoke hazard is detected.
+- 🚨 **Alert System:** Activates a buzzer when a potential fire or smoke hazard is detected.
 - 📊 **Live Dashboard:** Transmits sensor readings and rover status to a web-based dashboard.
 - ⚙️ **ESP32-Based Control:** Uses the ESP32 as the central processing and control unit.
 
