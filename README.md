@@ -19,9 +19,9 @@
 
 The rover uses an ESP32 microcontroller along with multiple sensors, including an ultrasonic sensor, MQ-2 gas sensor, and flame sensor, to monitor its surroundings. It can move around an area, detect obstacles, monitor smoke levels, and identify the presence of flames.
 
-When a potential hazard is detected, the system activates an audible warning through a buzzer and provides visual alerts through LEDs. Sensor readings are also transmitted to a web-based dashboard for real-time monitoring.
+When a potential hazard is detected, the system activates an audible warning through a buzzer. Sensor readings are also transmitted to a web-based dashboard for real-time monitoring.
 
-The main objective of this project is to demonstrate how robotics, embedded systems, and sensor technology can work together to develop a mobile fire-monitoring system.
+The main objective of this project is to demonstrate how robotics, embedded systems, and sensor technology can work together to develop a mobile fire-monitoring system rather than using a traditional fire alarm.
 
 ---
 
