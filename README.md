@@ -2,7 +2,7 @@
 ### An Autonomous Fire and Smoke Detection Rover
 
 <p align="center">
-  <img src="[assets/rover-front.jpeg" width="75%" alt="FirePatrolSentinel front view](https://github.com/adi-kaushIIk/FirePatrol-Sentinel/blob/6064d2e978173a7ef8cdfd0c3c365ba709b346dd/banner.jpg)">
+  <img src="https://raw.githubusercontent.com/adi-kaushIIk/FirePatrol-Sentinel/6064d2e978173a7ef8cdfd0c3c365ba709b346dd/banner.jpg" width="100%" alt="FirePatrolSentinel Banner">
 </p>
 
 > **Project Type:** Robotics & Embedded Systems  
@@ -131,27 +131,22 @@ We selected four DC geared motors because they offer a suitable combination of t
 ## 📸 Project Gallery
 
 ### Front View
+
 ![FirePatrolSentinel Front View](https://github.com/adi-kaushIIk/FirePatrol-Sentinel/blob/e97845e4902fea804e70b974bc665046e9be3ff5/rover-front.jpeg.jpeg)
 
 ### Top View
+
 ![FirePatrolSentinel Top View](https://github.com/adi-kaushIIk/FirePatrol-Sentinel/blob/e97845e4902fea804e70b974bc665046e9be3ff5/rover-top.jpeg.jpeg)
 
 ### Side Perspective
+
 ![FirePatrolSentinel Side View](https://github.com/adi-kaushIIk/FirePatrol-Sentinel/blob/e97845e4902fea804e70b974bc665046e9be3ff5/rover-side.jpeg.jpeg)
 
 ---
 
 ## 🎥 Project Demonstration
 
-Watch the actual FirePatrolSentinel demonstration:
-
-<p align="center">
-  <a href="https://youtube.com/shorts/h8ddNOI437M">
-    <img src="https://img.youtube.com/vi/h8ddNOI437M/0.jpg" width="75%" alt="FirePatrolSentinel YouTube Demonstration">
-  </a>
-  <br>
-  <a href="https://youtube.com/shorts/h8ddNOI437M">▶ Watch the Project Demonstration on YouTube</a>
-</p>
+**[▶ Watch FirePatrolSentinel in Action on YouTube](https://youtube.com/shorts/h8ddNOI437M)**
 
 ---
 
@@ -169,13 +164,13 @@ Watch the actual FirePatrolSentinel demonstration:
 **1. Clone the repository**
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/FirePatrolSentinel.git
+git clone https://github.com/adi-kaushIIk/FirePatrol-Sentinel.git
 ```
 
 **2. Navigate to the project directory**
 
 ```bash
-cd FirePatrolSentinel
+cd FirePatrol-Sentinel
 ```
 
 **3. Open the project in Visual Studio Code**
@@ -209,7 +204,7 @@ Open the dashboard using its configured hosting method and establish communicati
 ## 📂 Project Structure
 
 ```text
-FirePatrolSentinel/
+FirePatrol-Sentinel/
 │
 ├── src/
 │   └── main.cpp
