@@ -21,7 +21,7 @@ The rover uses an ESP32 microcontroller along with multiple sensors, including a
 
 When a potential hazard is detected, the system activates an audible warning through a buzzer. Sensor readings are also transmitted to a web-based dashboard for real-time monitoring.
 
-The main objective of this project is to demonstrate how robotics, embedded systems, and sensor technology can work together to develop a mobile fire-monitoring system rather than using a traditional fire alarm.
+The main objective of this project is to demonstrate how robotics, embedded systems, and sensor technology can work together to develop a mobile fire-monitoring system.
 
 ---
 
@@ -32,7 +32,7 @@ The main objective of this project is to demonstrate how robotics, embedded syst
 - 📡 **Obstacle Detection:** Measures the distance to nearby objects using an ultrasonic sensor.
 - 🤖 **Autonomous Patrolling:** Moves around the designated area while monitoring its surroundings.
 - 🔄 **Obstacle Avoidance:** Stops and changes direction when an obstacle is detected.
-- 🚨 **Alert System:** Activates a buzzer when a potential fire or smoke hazard is detected.
+- 🚨 **Audible Alert System:** Activates a buzzer when a potential fire or smoke hazard is detected.
 - 📊 **Live Dashboard:** Transmits sensor readings and rover status to a web-based dashboard.
 - ⚙️ **ESP32-Based Control:** Uses the ESP32 as the central processing and control unit.
 
@@ -81,8 +81,9 @@ The team was established and is led by **Kaushik Paul**, who is responsible for 
 | Component | Purpose |
 |---|---|
 | ESP32 Development Board | Main controller |
-| L298N Motor Driver | Controls motor movement |
-| 2 × DC Geared Motors | Drives the rover |
+| L298N Motor Driver | Controls the DC motors |
+| 2 × DC Geared Motors | Drives the rear wheels |
+| 2 × Caster Wheels | Provides front support and passive movement |
 | HC-SR04 Ultrasonic Sensor | Obstacle detection |
 | Servo Motor | Rotates the ultrasonic sensor |
 | MQ-2 Gas Sensor | Smoke and gas detection |
@@ -97,33 +98,33 @@ The team was established and is led by **Kaushik Paul**, who is responsible for 
 ## ⚙️ How It Works
 
 1. The ESP32 initializes the sensors, motor driver, and other connected components.
-2. The rover starts moving and continuously monitors its surroundings.
+2. The two rear DC motors drive the rover while the front caster wheels provide support.
 3. The ultrasonic sensor measures the distance to obstacles ahead.
 4. When an obstacle is detected, the rover stops, changes direction, and continues its patrol.
 5. The MQ-2 and flame sensors monitor the environment for potential fire hazards.
-6. If smoke or flame is detected, the warning system activates.
+6. If smoke or flame is detected, the buzzer activates to provide an audible warning.
 7. Sensor readings and system information are transmitted to the web dashboard.
 
 ---
 
 ## ⚙️ Motor Selection Justification
 
-For FirePatrolSentinel, we selected **four DC geared motors** to drive the rover.
+For FirePatrolSentinel, we selected **two DC geared motors** to drive the rear wheels of the rover. The front section uses two caster wheels to provide support and allow smooth movement.
 
-The selection was based on the movement requirements of the project, including controlled speed, sufficient torque, affordability, and compatibility with the L298N motor driver.
+The motor configuration was selected based on the movement requirements of the project, including controlled speed, sufficient torque, affordability, and compatibility with the L298N motor driver.
 
 ### Why These Motors?
 
-1. **Adequate Torque:** The gearbox helps provide the turning force required to move the rover along with its chassis, battery, and electronic components.
+1. **Adequate Torque:** The built-in gearbox provides the turning force required to move the rover along with its chassis, battery, and electronic components.
 2. **Controlled Movement:** Geared motors allow the rover to operate at a relatively low speed, which is useful for monitoring its surroundings.
-3. **Four-Wheel Drive:** Using four motors provides driving force to all four wheels, helping the rover maintain traction.
-4. **Directional Control:** With an H-bridge motor driver, the motors can operate in forward and reverse directions.
-5. **Compatibility:** DC geared motors can be integrated with the L298N motor driver and controlled through the ESP32.
-6. **Cost-Effectiveness:** They provide a practical and affordable solution for a student robotics project.
+3. **Differential Drive:** Two independently controlled rear motors allow the rover to move forward, backward, and turn by varying the direction of each motor.
+4. **Caster Wheel Support:** The front caster wheels provide additional support and allow the rover to change direction without requiring additional driving motors.
+5. **Compatibility:** DC geared motors can be controlled through the L298N motor driver, which receives movement commands from the ESP32.
+6. **Cost-Effectiveness:** Using two driving motors reduces hardware complexity and provides an affordable solution for a student robotics project.
 
 ### Final Justification
 
-We selected four DC geared motors because they offer a suitable combination of torque, controlled movement, traction, and affordability for our four-wheel robotic rover.
+We selected two DC geared motors with a front caster-wheel arrangement because this configuration provides a practical combination of controlled movement, sufficient torque, manoeuvrability, and affordability. It also simplifies the mechanical design and motor control system.
 
 ---
 
@@ -222,10 +223,10 @@ FirePatrol-Sentinel/
 │   ├── STEP/
 │   └── Drawings/
 │
-├── assets/
-│   ├── rover-front.jpeg
-│   ├── rover-top.jpeg
-│   └── rover-side.jpeg
+├── banner.jpg
+├── rover-front.jpeg.jpeg
+├── rover-top.jpeg.jpeg
+├── rover-side.jpeg.jpeg
 │
 ├── diagrams/
 │   ├── wiring-diagram.png
