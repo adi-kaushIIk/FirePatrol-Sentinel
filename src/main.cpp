@@ -116,6 +116,19 @@ void updateSensors() {
   else if (state.smoke) state.hazard = "smoke";
   else state.hazard = "none";
   state.updatedAt = millis();
+
+  // Serial diagnostics: check these values while testing the ultrasonic sensor.
+  Serial.print("Distance: ");
+  if (state.distanceCm < 0) Serial.print("NO ECHO");
+  else Serial.print(state.distanceCm);
+  Serial.print(" cm | MQ2: ");
+  Serial.print(state.mq2);
+  Serial.print(" | Flame: ");
+  Serial.print(state.flame ? "DETECTED" : "CLEAR");
+  Serial.print(" | Smoke: ");
+  Serial.print(state.smoke ? "YES" : "NO");
+  Serial.print(" | Obstacle: ");
+  Serial.println(state.obstacle ? "YES" : "NO");
 }
 void alarmTick() {
   bool hazard = state.hazard != "none";
